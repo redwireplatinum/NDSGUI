@@ -1,0 +1,222 @@
+-- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local RedWiresNDSGUI = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Falldamageremove = Instance.new("TextButton")
+local prewarn = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local ChatDisaster = Instance.new("TextButton")
+local ripoffFD = Instance.new("TextButton")
+local Admin = Instance.new("TextButton")
+local lobbytp = Instance.new("TextButton")
+--Properties:
+RedWiresNDSGUI.Name = "RedWiresNDSGUI"
+RedWiresNDSGUI.Parent = game.CoreGui
+RedWiresNDSGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = RedWiresNDSGUI
+MainFrame.Active = true
+MainFrame.BackgroundColor3 = Color3.new(0, 0.886275, 0.694118)
+MainFrame.Position = UDim2.new(0.716791153, 0, 0.529520273, 0)
+MainFrame.Size = UDim2.new(0, 227, 0, 199)
+
+Falldamageremove.Name = "Falldamageremove"
+Falldamageremove.Parent = MainFrame
+Falldamageremove.BackgroundColor3 = Color3.new(1, 1, 1)
+Falldamageremove.Position = UDim2.new(-0.00132986729, 0, 0.514273465, 0)
+Falldamageremove.Size = UDim2.new(0, 109, 0, 49)
+Falldamageremove.Font = Enum.Font.Cartoon
+Falldamageremove.Text = "Auto Fall Damage Remover"
+Falldamageremove.TextColor3 = Color3.new(0.831373, 0.329412, 0.329412)
+Falldamageremove.TextScaled = true
+Falldamageremove.TextSize = 14
+Falldamageremove.TextWrapped = true
+
+prewarn.Name = "prewarn"
+prewarn.Parent = MainFrame
+prewarn.BackgroundColor3 = Color3.new(1, 1, 1)
+prewarn.Position = UDim2.new(-0.00132986729, 0, 0.263121039, 0)
+prewarn.Size = UDim2.new(0, 109, 0, 43)
+prewarn.Font = Enum.Font.Cartoon
+prewarn.Text = "Auto Pre-Warn Disaster"
+prewarn.TextColor3 = Color3.new(0.831373, 0.329412, 0.329412)
+prewarn.TextScaled = true
+prewarn.TextSize = 14
+prewarn.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.new(0.0196078, 0.694118, 0.729412)
+Title.Position = UDim2.new(-0.000451982807, 0, -0.000759770977, 0)
+Title.Size = UDim2.new(0, 227, 0, 50)
+Title.Font = Enum.Font.Highway
+Title.Text = "RedWire's Natural Disaster Survival GUI"
+Title.TextColor3 = Color3.new(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 16
+Title.TextWrapped = true
+
+ChatDisaster.Name = "ChatDisaster"
+ChatDisaster.Parent = MainFrame
+ChatDisaster.BackgroundColor3 = Color3.new(1, 1, 1)
+ChatDisaster.Position = UDim2.new(0.514088631, 0, 0.263470978, 0)
+ChatDisaster.Size = UDim2.new(0, 110, 0, 42)
+ChatDisaster.Font = Enum.Font.Cartoon
+ChatDisaster.Text = "Post Disaster In chat"
+ChatDisaster.TextColor3 = Color3.new(0.831373, 0.329412, 0.329412)
+ChatDisaster.TextScaled = true
+ChatDisaster.TextSize = 14
+ChatDisaster.TextWrapped = true
+
+ripoffFD.Name = "ripoffFD"
+ripoffFD.Parent = MainFrame
+ripoffFD.BackgroundColor3 = Color3.new(1, 1, 1)
+ripoffFD.Position = UDim2.new(0.514088631, 0, 0.514273465, 0)
+ripoffFD.Size = UDim2.new(0, 110, 0, 49)
+ripoffFD.Font = Enum.Font.Cartoon
+ripoffFD.Text = "Auto Fall Damage Remover (Applies to NDS replicas)"
+ripoffFD.TextColor3 = Color3.new(0.831373, 0.329412, 0.329412)
+ripoffFD.TextScaled = true
+ripoffFD.TextSize = 14
+ripoffFD.TextWrapped = true
+
+Admin.Name = "Admin"
+Admin.Parent = MainFrame
+Admin.BackgroundColor3 = Color3.new(1, 1, 1)
+Admin.Position = UDim2.new(-0.00132986729, 0, 0.790655375, 0)
+Admin.Size = UDim2.new(0, 109, 0, 41)
+Admin.Font = Enum.Font.Cartoon
+Admin.Text = "Infinite Yield"
+Admin.TextColor3 = Color3.new(0.831373, 0.329412, 0.329412)
+Admin.TextScaled = true
+Admin.TextSize = 14
+Admin.TextWrapped = true
+
+lobbytp.Name = "lobbytp"
+lobbytp.Parent = MainFrame
+lobbytp.BackgroundColor3 = Color3.new(1, 1, 1)
+lobbytp.Position = UDim2.new(0.514088631, 0, 0.790655375, 0)
+lobbytp.Size = UDim2.new(0, 110, 0, 41)
+lobbytp.Font = Enum.Font.Cartoon
+lobbytp.Text = "TP to lobby"
+lobbytp.TextColor3 = Color3.new(0.831373, 0.329412, 0.329412)
+lobbytp.TextScaled = true
+lobbytp.TextSize = 14
+lobbytp.TextWrapped = true
+-- Scripts:
+function SCRIPT_ILRO81_FAKESCRIPT() -- Falldamageremove.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Falldamageremove
+	script.Parent.MouseButton1Down:connect(function()
+	local lplr = game.Players.LocalPlayer
+	print("Fall damage is no more")
+	local falldmg = lplr.Character:FindFirstChild("FallDamageScript")
+	if falldmg then
+	falldmg:Destroy()
+	end
+	function nofalldmg(chr)
+	chr.ChildAdded:connect(function(c)
+	if c.Name == "FallDamageScript" then
+	wait(0.2)
+	c:Destroy()
+	end
+	end)
+	end
+	lplr.CharacterAdded:connect(function(chr)
+	nofalldmg(chr)
+	end)
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_ILRO81_FAKESCRIPT))
+function SCRIPT_KFDZ74_FAKESCRIPT() -- prewarn.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = prewarn
+	script.Parent.MouseButton1Down:connect(function()
+	local lplr = game.Players.LocalPlayer
+	local tag = lplr.Character:FindFirstChild("SurvivalTag")
+	if tag then
+	local hint = Instance.new("Message", workspace)
+	hint.Text = tag.Value
+	wait(4)
+	hint:Destroy()
+	end
+	function prewarn(chr)
+	chr.ChildAdded:connect(function(c)
+	if c.Name == "SurvivalTag" then
+	local hint = Instance.new("Message", workspace)
+	hint.Text = c.Value
+	wait(4)
+	hint:Destroy()
+	end
+	end)
+	end
+	prewarn(lplr.Character)
+	lplr.CharacterAdded:connect(function(chr)
+	prewarn(chr)
+	end)
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_KFDZ74_FAKESCRIPT))
+function SCRIPT_DJIB66_FAKESCRIPT() -- ChatDisaster.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = ChatDisaster
+	script.Parent.MouseButton1Down:connect(function()
+	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The disaster for this match is: ".. game.Players.LocalPlayer.Character.SurvivalTag.Value, "All")
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_DJIB66_FAKESCRIPT))
+function SCRIPT_SAPY74_FAKESCRIPT() -- ripoffFD.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = ripoffFD
+	script.Parent.MouseButton1Down:connect(function()
+	print("y are u in a natural disaster knockoff anyways lol")
+	local lplr = game.Players.LocalPlayer
+	local falldmg = lplr.Character:FindFirstChild("CharacterScript")
+	if falldmg then
+	falldmg:Destroy()
+	end
+	function nofalldmg(chr)
+	chr.ChildAdded:connect(function(c)
+	if c.Name == "CharacterScript" then
+	wait(0.2)
+	c:Destroy()
+	end
+	end)
+	end
+	lplr.CharacterAdded:connect(function(chr)
+	nofalldmg(chr)
+	end)
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_SAPY74_FAKESCRIPT))
+function SCRIPT_GGDY72_FAKESCRIPT() -- Admin.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = Admin
+	script.Parent.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_GGDY72_FAKESCRIPT))
+function SCRIPT_BCZE82_FAKESCRIPT() -- lobbytp.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = lobbytp
+	script.Parent.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290, 178, 379)
+	end)
+
+end
+coroutine.resume(coroutine.create(SCRIPT_BCZE82_FAKESCRIPT))
+function SCRIPT_POGO65_FAKESCRIPT() -- MainFrame.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = MainFrame
+	script.Parent.Draggable = true
+
+end
+coroutine.resume(coroutine.create(SCRIPT_POGO65_FAKESCRIPT))
