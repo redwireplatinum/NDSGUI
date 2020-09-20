@@ -109,7 +109,7 @@ lobbytp.TextWrapped = true
 function SCRIPT_ILRO81_FAKESCRIPT() -- Falldamageremove.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Falldamageremove
-	script.Parent.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:connect(function()
 	local lplr = game.Players.LocalPlayer
 	print("Fall damage is no more")
 	local falldmg = lplr.Character:FindFirstChild("FallDamageScript")
@@ -134,7 +134,7 @@ coroutine.resume(coroutine.create(SCRIPT_ILRO81_FAKESCRIPT))
 function SCRIPT_KFDZ74_FAKESCRIPT() -- prewarn.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = prewarn
-	script.Parent.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:connect(function()
 	local lplr = game.Players.LocalPlayer
 	local tag = lplr.Character:FindFirstChild("SurvivalTag")
 	if tag then
@@ -164,7 +164,7 @@ coroutine.resume(coroutine.create(SCRIPT_KFDZ74_FAKESCRIPT))
 function SCRIPT_DJIB66_FAKESCRIPT() -- ChatDisaster.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = ChatDisaster
-	script.Parent.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:connect(function()
 	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The disaster for this match is: ".. game.Players.LocalPlayer.Character.SurvivalTag.Value, "All")
 	end)
 
@@ -173,7 +173,7 @@ coroutine.resume(coroutine.create(SCRIPT_DJIB66_FAKESCRIPT))
 function SCRIPT_SAPY74_FAKESCRIPT() -- ripoffFD.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = ripoffFD
-	script.Parent.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:connect(function()
 	print("y are u in a natural disaster knockoff anyways lol")
 	local lplr = game.Players.LocalPlayer
 	local falldmg = lplr.Character:FindFirstChild("CharacterScript")
@@ -198,7 +198,7 @@ coroutine.resume(coroutine.create(SCRIPT_SAPY74_FAKESCRIPT))
 function SCRIPT_GGDY72_FAKESCRIPT() -- Admin.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = Admin
-	script.Parent.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:connect(function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 	end)
 
@@ -207,7 +207,7 @@ coroutine.resume(coroutine.create(SCRIPT_GGDY72_FAKESCRIPT))
 function SCRIPT_BCZE82_FAKESCRIPT() -- lobbytp.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = lobbytp
-	script.Parent.MouseButton1Down:connect(function()
+	script.Parent.MouseButton1Click:connect(function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290, 178, 379)
 	end)
 
