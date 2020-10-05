@@ -109,6 +109,7 @@ lobbytp.TextWrapped = true
 function SCRIPT_YLXS90_FAKESCRIPT() -- MainFrame.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = MainFrame
+	script.Parent.Draggable = true
 	local Buttons = script.Parent
 	local lplr = game.Players.LocalPlayer
 	Buttons.Admin.MouseButton1Click:connect(function()
