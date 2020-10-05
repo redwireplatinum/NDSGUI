@@ -19,7 +19,7 @@ MainFrame.Name = "MainFrame"
 MainFrame.Parent = RedWiresNDSGUI
 MainFrame.Active = true
 MainFrame.BackgroundColor3 = Color3.new(0, 0.886275, 0.694118)
-MainFrame.Position = UDim2.new(0.716791153, 0, 0.529520273, 0)
+MainFrame.Position = UDim2.new(0.636308253, 0, 0.121771187, 0)
 MainFrame.Size = UDim2.new(0, 227, 0, 199)
 
 Falldamageremove.Name = "Falldamageremove"
@@ -106,117 +106,79 @@ lobbytp.TextScaled = true
 lobbytp.TextSize = 14
 lobbytp.TextWrapped = true
 -- Scripts:
-function SCRIPT_ILRO81_FAKESCRIPT() -- Falldamageremove.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = Falldamageremove
-	script.Parent.MouseButton1Click:connect(function()
-	local lplr = game.Players.LocalPlayer
-	print("Fall damage is no more")
-	local falldmg = lplr.Character:FindFirstChild("FallDamageScript")
-	if falldmg then
-	falldmg:Destroy()
-	end
-	function nofalldmg(chr)
-	chr.ChildAdded:connect(function(c)
-	if c.Name == "FallDamageScript" then
-	wait(0.2)
-	c:Destroy()
-	end
-	end)
-	end
-	lplr.CharacterAdded:connect(function(chr)
-	nofalldmg(chr)
-	end)
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_ILRO81_FAKESCRIPT))
-function SCRIPT_KFDZ74_FAKESCRIPT() -- prewarn.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = prewarn
-	script.Parent.MouseButton1Click:connect(function()
-	local lplr = game.Players.LocalPlayer
-	local tag = lplr.Character:FindFirstChild("SurvivalTag")
-	if tag then
-	local hint = Instance.new("Message", workspace)
-	hint.Text = tag.Value
-	wait(4)
-	hint:Destroy()
-	end
-	function prewarn(chr)
-	chr.ChildAdded:connect(function(c)
-	if c.Name == "SurvivalTag" then
-	local hint = Instance.new("Message", workspace)
-	hint.Text = c.Value
-	wait(4)
-	hint:Destroy()
-	end
-	end)
-	end
-	prewarn(lplr.Character)
-	lplr.CharacterAdded:connect(function(chr)
-	prewarn(chr)
-	end)
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_KFDZ74_FAKESCRIPT))
-function SCRIPT_DJIB66_FAKESCRIPT() -- ChatDisaster.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = ChatDisaster
-	script.Parent.MouseButton1Click:connect(function()
-	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The disaster for this match is: ".. game.Players.LocalPlayer.Character.SurvivalTag.Value, "All")
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_DJIB66_FAKESCRIPT))
-function SCRIPT_SAPY74_FAKESCRIPT() -- ripoffFD.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = ripoffFD
-	script.Parent.MouseButton1Click:connect(function()
-	print("y are u in a natural disaster knockoff anyways lol")
-	local lplr = game.Players.LocalPlayer
-	local falldmg = lplr.Character:FindFirstChild("CharacterScript")
-	if falldmg then
-	falldmg:Destroy()
-	end
-	function nofalldmg(chr)
-	chr.ChildAdded:connect(function(c)
-	if c.Name == "CharacterScript" then
-	wait(0.2)
-	c:Destroy()
-	end
-	end)
-	end
-	lplr.CharacterAdded:connect(function(chr)
-	nofalldmg(chr)
-	end)
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_SAPY74_FAKESCRIPT))
-function SCRIPT_GGDY72_FAKESCRIPT() -- Admin.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = Admin
-	script.Parent.MouseButton1Click:connect(function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_GGDY72_FAKESCRIPT))
-function SCRIPT_BCZE82_FAKESCRIPT() -- lobbytp.LocalScript 
-	local script = Instance.new('LocalScript')
-	script.Parent = lobbytp
-	script.Parent.MouseButton1Click:connect(function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290, 178, 379)
-	end)
-
-end
-coroutine.resume(coroutine.create(SCRIPT_BCZE82_FAKESCRIPT))
-function SCRIPT_POGO65_FAKESCRIPT() -- MainFrame.LocalScript 
+function SCRIPT_YLXS90_FAKESCRIPT() -- MainFrame.LocalScript 
 	local script = Instance.new('LocalScript')
 	script.Parent = MainFrame
-	script.Parent.Draggable = true
+	local Buttons = script.Parent
+	local lplr = game.Players.LocalPlayer
+	Buttons.Admin.MouseButton1Click:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end)
+	Buttons.lobbytp.MouseButton1Click:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290, 178, 379)
+	end)
+	Buttons.ChatDisaster.MouseButton1Click:connect(function()
+	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The disaster for this match is: ".. game.Players.LocalPlayer.Character.SurvivalTag.Value, "All")
+	end)
+	Buttons.Falldamageremove.MouseButton1Click:connect(function()
+		print("Fall damage is no more")
+		local falldmg = lplr.Character:FindFirstChild("FallDamageScript")
+		if falldmg then
+		falldmg:Destroy()
+		end
+		function nofalldmg(chr)
+		chr.ChildAdded:connect(function(c)
+		if c.Name == "FallDamageScript" then
+		wait(0.2)
+		c:Destroy()
+		end
+		end)
+		end
+		lplr.CharacterAdded:connect(function(chr)
+		nofalldmg(chr)
+		end)
+	end)
+	Buttons.ripoffFD.MouseButton1Click:connect(function()
+		print("y are u in a natural disaster knockoff anyways lol")
+		local falldmg = lplr.Character:FindFirstChild("CharacterScript")
+		if falldmg then
+		falldmg:Destroy()
+		end
+		function nofalldmg(chr)
+		chr.ChildAdded:connect(function(c)
+		if c.Name == "CharacterScript" then
+		wait(0.2)
+		c:Destroy()
+		end
+		end)
+		end
+		lplr.CharacterAdded:connect(function(chr)
+		nofalldmg(chr)
+		end)
+	end)
+	Buttons.prewarn.MouseButton1Click:connect(function()
+		local tag = lplr.Character:FindFirstChild("SurvivalTag")
+		if tag then
+		local hint = Instance.new("Message", workspace)
+		hint.Text = tag.Value
+		wait(4)
+		hint:Destroy()
+		end
+		function prewarn(chr)
+		chr.ChildAdded:connect(function(c)
+		if c.Name == "SurvivalTag" then
+		local hint = Instance.new("Message", workspace)
+		hint.Text = "The disaster is: "..c.Value
+		wait(4)
+		hint:Destroy()
+		end
+		end)
+		end
+		prewarn(lplr.Character)
+		lplr.CharacterAdded:connect(function(chr)
+		prewarn(chr)
+		end)
+	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_POGO65_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_YLXS90_FAKESCRIPT))
