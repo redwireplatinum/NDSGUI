@@ -13,7 +13,6 @@ local lobbytp = Instance.new("TextButton")
 --Properties:
 RedWiresNDSGUI.Name = "RedWiresNDSGUI"
 RedWiresNDSGUI.Parent = game.CoreGui
-RedWiresNDSGUI.Enabled = false
 RedWiresNDSGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
