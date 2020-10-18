@@ -13,6 +13,7 @@ local lobbytp = Instance.new("TextButton")
 --Properties:
 RedWiresNDSGUI.Name = "RedWiresNDSGUI"
 RedWiresNDSGUI.Parent = game.CoreGui
+RedWiresNDSGUI.Enabled = false
 RedWiresNDSGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 MainFrame.Name = "MainFrame"
@@ -106,22 +107,22 @@ lobbytp.TextScaled = true
 lobbytp.TextSize = 14
 lobbytp.TextWrapped = true
 -- Scripts:
-function SCRIPT_YLXS90_FAKESCRIPT() -- MainFrame.LocalScript 
+function SCRIPT_EBCJ70_FAKESCRIPT() -- RedWiresNDSGUI.LocalScript 
 	local script = Instance.new('LocalScript')
-	script.Parent = MainFrame
-	script.Parent.Draggable = true
-	local Buttons = script.Parent
+	script.Parent = RedWiresNDSGUI
+	local mframe = script.Parent.MainFrame
+	mframe.Draggable = true
 	local lplr = game.Players.LocalPlayer
-	Buttons.Admin.MouseButton1Click:connect(function()
+	mframe.Admin.MouseButton1Click:connect(function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 	end)
-	Buttons.lobbytp.MouseButton1Click:connect(function()
+	mframe.lobbytp.MouseButton1Click:connect(function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-290, 178, 379)
 	end)
-	Buttons.ChatDisaster.MouseButton1Click:connect(function()
+	mframe.ChatDisaster.MouseButton1Click:connect(function()
 	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The disaster for this match is: ".. game.Players.LocalPlayer.Character.SurvivalTag.Value, "All")
 	end)
-	Buttons.Falldamageremove.MouseButton1Click:connect(function()
+	mframe.Falldamageremove.MouseButton1Click:connect(function()
 		print("Fall damage is no more")
 		local falldmg = lplr.Character:FindFirstChild("FallDamageScript")
 		if falldmg then
@@ -139,7 +140,7 @@ function SCRIPT_YLXS90_FAKESCRIPT() -- MainFrame.LocalScript
 		nofalldmg(chr)
 		end)
 	end)
-	Buttons.ripoffFD.MouseButton1Click:connect(function()
+	mframe.ripoffFD.MouseButton1Click:connect(function()
 		print("y are u in a natural disaster knockoff anyways lol")
 		local falldmg = lplr.Character:FindFirstChild("CharacterScript")
 		if falldmg then
@@ -157,7 +158,7 @@ function SCRIPT_YLXS90_FAKESCRIPT() -- MainFrame.LocalScript
 		nofalldmg(chr)
 		end)
 	end)
-	Buttons.prewarn.MouseButton1Click:connect(function()
+	mframe.prewarn.MouseButton1Click:connect(function()
 		local tag = lplr.Character:FindFirstChild("SurvivalTag")
 		if tag then
 		local hint = Instance.new("Message", workspace)
@@ -182,4 +183,4 @@ function SCRIPT_YLXS90_FAKESCRIPT() -- MainFrame.LocalScript
 	end)
 
 end
-coroutine.resume(coroutine.create(SCRIPT_YLXS90_FAKESCRIPT))
+coroutine.resume(coroutine.create(SCRIPT_EBCJ70_FAKESCRIPT))
